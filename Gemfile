@@ -54,6 +54,7 @@ gem "awesome_nested_set", github: "peterberkenbosch/awesome_nested_set", branch:
 gem "font-awesome-rails", github: "cseelus/font-awesome-rails", branch: "rails-7-compatibility"
 
 gem "solidus", github: "peterberkenbosch/solidus", branch: "rails7"
+gem "solidus_auth_devise"
 
 group :development, :test do
   # Start debugger with binding.b [https://github.com/ruby/debug]
@@ -83,4 +84,3 @@ group :development do
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
   # gem 'rack-mini-profiler', '~> 2.0'
 end
-gem "solidus_auth_devise"
