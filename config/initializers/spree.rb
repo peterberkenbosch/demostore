@@ -4,7 +4,7 @@ require "spree/event/adapters/default"
 # See http://docs.solidus.io/Spree/AppConfiguration.html for details
 
 # Solidus version defaults for preferences that are not overridden
-Spree.load_defaults '3.2.0.alpha'
+Spree.load_defaults "3.2.0.alpha"
 
 Spree.config do |config|
   # Core:
@@ -23,8 +23,8 @@ Spree.config do |config|
   # config.inventory_cache_threshold = 3
 
   # Configure adapter for attachments on products and taxons (use ActiveStorageAttachment or PaperclipAttachment)
-  config.image_attachment_module = 'Spree::Image::ActiveStorageAttachment'
-  config.taxon_attachment_module = 'Spree::Taxon::ActiveStorageAttachment'
+  config.image_attachment_module = "Spree::Image::ActiveStorageAttachment"
+  config.taxon_attachment_module = "Spree::Taxon::ActiveStorageAttachment"
 
   # Defaults
   # Permission Sets:
@@ -43,7 +43,6 @@ Spree.config do |config|
 
   # Template to use when rendering layout
   # config.layout = "spree/layouts/spree_application"
-
 
   # Admin:
 
@@ -67,11 +66,11 @@ Spree.config do |config|
 end
 
 Spree::Frontend::Config.configure do |config|
-  config.locale = 'en'
+  config.locale = "en"
 end
 
 Spree::Backend::Config.configure do |config|
-  config.locale = 'en'
+  config.locale = "en"
 
   # Uncomment and change the following configuration if you want to add
   # a new menu item:

@@ -22,9 +22,9 @@ Bundler.require(*Rails.groups)
 module App
   class Application < Rails::Application
     # Load application's model / class decorators
-    initializer 'spree.decorators' do |app|
+    initializer "spree.decorators" do |app|
       config.to_prepare do
-        Dir.glob(Rails.root.join('app/**/*_decorator*.rb')) do |path|
+        Dir.glob(Rails.root.join("app/**/*_decorator*.rb")) do |path|
           require_dependency(path)
         end
       end
