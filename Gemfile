@@ -48,6 +48,13 @@ gem "image_processing", ">= 1.2"
 gem "strong_migrations"
 gem "sidekiq"
 
+# use forked gems that have not yet been released with rails 7 support:
+gem "ransack", github: "activerecord-hackery/ransack"
+gem "awesome_nested_set", github: "peterberkenbosch/awesome_nested_set", branch: "rails-7-support"
+gem "font-awesome-rails", github: "cseelus/font-awesome-rails",  branch: "rails-7-compatibility"
+
+gem "solidus", github: "peterberkenbosch/solidus", branch: "rails7"
+
 group :development, :test do
   # Start debugger with binding.b [https://github.com/ruby/debug]
   gem "debug", ">= 1.0.0", platforms: %i[mri mingw x64_mingw]

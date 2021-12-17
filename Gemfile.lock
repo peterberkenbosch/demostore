@@ -1,4 +1,21 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: 25c5c9dfec216a5fafcd90b8893abcfe19460e50
+  specs:
+    ransack (2.4.2)
+      activerecord (>= 5.2.4)
+      activesupport (>= 5.2.4)
+      i18n
+
+GIT
+  remote: https://github.com/cseelus/font-awesome-rails.git
+  revision: b3d268514fa43b9657cbb1e8c9a29b63ffe491e9
+  branch: rails-7-compatibility
+  specs:
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7.1)
+
+GIT
   remote: https://github.com/peterberkenbosch/annotate_models.git
   revision: 49cb4ec2e07c7d1a64109b1882e8a874574d250f
   branch: rails-7-support
@@ -6,6 +23,78 @@ GIT
     annotate (3.1.1)
       activerecord (>= 3.2, < 7.1)
       rake (>= 10.4, < 14.0)
+
+GIT
+  remote: https://github.com/peterberkenbosch/awesome_nested_set.git
+  revision: 0e1fc69afc75756e6d38408633ca23504a81e5b5
+  branch: rails-7-support
+  specs:
+    awesome_nested_set (3.4.0)
+      activerecord (>= 4.0.0, < 7.1)
+
+GIT
+  remote: https://github.com/peterberkenbosch/solidus.git
+  revision: d28868ab4f2dd021e86872fd243ea4961be4a780
+  branch: rails7
+  specs:
+    solidus (3.2.0.alpha)
+      solidus_api (= 3.2.0.alpha)
+      solidus_backend (= 3.2.0.alpha)
+      solidus_core (= 3.2.0.alpha)
+      solidus_frontend (= 3.2.0.alpha)
+      solidus_sample (= 3.2.0.alpha)
+    solidus_api (3.2.0.alpha)
+      jbuilder (~> 2.8)
+      kaminari-activerecord (~> 1.1)
+      responders
+      solidus_core (= 3.2.0.alpha)
+    solidus_backend (3.2.0.alpha)
+      autoprefixer-rails (~> 10.2, >= 10.2.5.1)
+      coffee-rails
+      font-awesome-rails (~> 4.0)
+      handlebars_assets (~> 0.23)
+      jbuilder (~> 2.8)
+      jquery-rails
+      kaminari (~> 1.1)
+      responders
+      sassc-rails
+      solidus_api (= 3.2.0.alpha)
+      solidus_core (= 3.2.0.alpha)
+    solidus_core (3.2.0.alpha)
+      actionmailer (>= 5.2, < 7.1.x)
+      actionpack (>= 5.2, < 7.1.x)
+      actionview (>= 5.2, < 7.1.x)
+      activejob (>= 5.2, < 7.1.x)
+      activemerchant (~> 1.66)
+      activemodel (>= 5.2, < 7.1.x)
+      activerecord (>= 5.2, < 7.1.x)
+      activesupport (>= 5.2, < 7.1.x)
+      acts_as_list (< 2.0)
+      awesome_nested_set (~> 3.3)
+      cancancan (>= 2.2, < 4.0)
+      carmen (~> 1.1.0)
+      discard (~> 1.0)
+      friendly_id (~> 5.0)
+      image_processing (~> 1.10)
+      kaminari-activerecord (~> 1.1)
+      kt-paperclip (~> 6.3)
+      mini_magick (~> 4.10)
+      monetize (~> 1.8)
+      railties (>= 5.2, < 7.1.x)
+      ransack (~> 2.0)
+      state_machines-activerecord (~> 0.6)
+    solidus_frontend (3.2.0.alpha)
+      canonical-rails (~> 0.2.10)
+      font-awesome-rails (~> 4.0)
+      jquery-rails
+      kaminari (~> 1.1)
+      responders
+      sassc-rails
+      solidus_api (= 3.2.0.alpha)
+      solidus_core (= 3.2.0.alpha)
+      truncate_html (~> 0.9, >= 0.9.2)
+    solidus_sample (3.2.0.alpha)
+      solidus_core (= 3.2.0.alpha)
 
 GIT
   remote: https://github.com/rubysec/bundler-audit.git
@@ -60,6 +149,11 @@ GEM
     activejob (7.0.0)
       activesupport (= 7.0.0)
       globalid (>= 0.3.6)
+    activemerchant (1.124.0)
+      activesupport (>= 4.2)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (7.0.0)
       activesupport (= 7.0.0)
     activerecord (7.0.0)
@@ -77,12 +171,19 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    acts_as_list (1.0.4)
+      activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
+    autoprefixer-rails (10.3.3.0)
+      execjs (~> 2)
     bindex (0.8.1)
     brakeman (5.2.0)
     builder (3.2.4)
+    cancancan (3.3.0)
+    canonical-rails (0.2.13)
+      rails (>= 4.1, <= 7.0)
     capybara (3.36.0)
       addressable
       matrix
@@ -92,8 +193,18 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    carmen (1.1.3)
+      activesupport (>= 3.0.0)
     childprocess (4.1.0)
+    climate_control (0.2.0)
     coderay (1.1.3)
+    coffee-rails (5.0.0)
+      coffee-script (>= 2.2.0)
+      railties (>= 5.2.0)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.9)
     connection_pool (2.2.5)
     crass (1.0.6)
@@ -103,15 +214,24 @@ GEM
       irb (>= 1.3.6)
       reline (>= 0.2.7)
     diff-lcs (1.4.4)
+    discard (1.2.1)
+      activerecord (>= 4.2, < 8)
     erubi (1.10.0)
+    execjs (2.8.1)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
     ffi (1.15.4)
+    friendly_id (5.4.2)
+      activerecord (>= 4.0.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
+    handlebars_assets (0.23.9)
+      execjs (~> 2.0)
+      sprockets (>= 2.0.0)
+      tilt (>= 1.2)
     i18n (1.8.11)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.1)
@@ -122,8 +242,30 @@ GEM
       reline (>= 0.2.7)
     jbuilder (2.11.3)
       activesupport (>= 5.0.0)
+    jquery-rails (4.4.0)
+      rails-dom-testing (>= 1, < 3)
+      railties (>= 4.2.0)
+      thor (>= 0.14, < 2.0)
     jsbundling-rails (1.0.0)
       railties (>= 6.0.0)
+    kaminari (1.2.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.1)
+      kaminari-activerecord (= 1.2.1)
+      kaminari-core (= 1.2.1)
+    kaminari-actionview (1.2.1)
+      actionview
+      kaminari-core (= 1.2.1)
+    kaminari-activerecord (1.2.1)
+      activerecord
+      kaminari-core (= 1.2.1)
+    kaminari-core (1.2.1)
+    kt-paperclip (6.4.1)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      mime-types
+      mimemagic (~> 0.3.0)
+      terrapin (~> 0.6.0)
     launchy (2.5.0)
       addressable (~> 2.7)
     letter_opener (1.7.0)
@@ -141,10 +283,20 @@ GEM
     marcel (1.0.2)
     matrix (0.4.2)
     method_source (1.0.0)
+    mime-types (3.4.1)
+      mime-types-data (~> 3.2015)
+    mime-types-data (3.2021.1115)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.15.0)
+    monetize (1.11.0)
+      money (~> 6.12)
+    money (6.16.0)
+      i18n (>= 0.6.4, <= 2)
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -203,6 +355,9 @@ GEM
     regexp_parser (2.2.0)
     reline (0.2.7)
       io-console (~> 0.5)
+    responders (3.0.1)
+      actionpack (>= 5.0)
+      railties (>= 5.0)
     rexml (3.2.5)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
@@ -239,6 +394,14 @@ GEM
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.1.0)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -257,11 +420,22 @@ GEM
     standard (1.5.0)
       rubocop (= 1.23.0)
       rubocop-performance (= 1.12.0)
+    state_machines (0.5.0)
+    state_machines-activemodel (0.8.0)
+      activemodel (>= 5.1)
+      state_machines (>= 0.5.0)
+    state_machines-activerecord (0.8.0)
+      activerecord (>= 5.1)
+      state_machines-activemodel (>= 0.8.0)
     stimulus-rails (1.0.2)
       railties (>= 6.0.0)
     strong_migrations (0.7.9)
       activerecord (>= 5)
+    terrapin (0.6.0)
+      climate_control (>= 0.0.3, < 1.0)
     thor (1.1.0)
+    tilt (2.0.10)
+    truncate_html (0.9.3)
     turbo-rails (1.0.0)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
@@ -292,12 +466,14 @@ PLATFORMS
 
 DEPENDENCIES
   annotate!
+  awesome_nested_set!
   brakeman
   bundler-audit!
   capybara (>= 3.26)
   cssbundling-rails (>= 1.0.0)
   debug (>= 1.0.0)
   factory_bot_rails
+  font-awesome-rails!
   image_processing (>= 1.2)
   jbuilder (~> 2.11)
   jsbundling-rails (>= 1.0.0)
@@ -306,10 +482,12 @@ DEPENDENCIES
   pry-rails
   puma (~> 5.5)
   rails (~> 7.0.0)
+  ransack!
   redis (~> 4.0)
   rspec-rails
   selenium-webdriver
   sidekiq
+  solidus!
   sprockets-rails (>= 2.0.0)
   standard
   stimulus-rails (>= 1.0.0)
