@@ -1,0 +1,87 @@
+version: '1.0'
+
+environment:
+  RAILS_ENV: development
+
+compose:
+  files:
+    - docker-compose.yml
+
+interaction:
+  sh:
+    description: Open a Bash shell within a Rails container (with dependencies up)
+    service: rails
+    command: /bin/bash
+
+  bash:
+    description: Run an arbitrary script within a container (or open a shell without deps)
+    service: rails
+    command: /bin/bash
+    compose_run_options: [no-deps]
+
+  bundle:
+    description: Run Bundler commands
+    service: rails
+    command: bundle
+    compose_run_options: [no-deps]
+
+  rake:
+    description: Run Rake commands
+    service: rails
+    command: bundle exec rake
+
+  yarn:
+    service: rails
+    command: yarn
+    compose_run_options: [no-deps]
+
+  rails:
+    description: Run Rails commands
+    service: rails
+    command: bundle exec rails
+    subcommands:
+      s:
+        description: Run Rails server available at http://localhost:3000
+        service: rails
+        compose:
+          run_options: [service-ports, use-aliases]
+
+  rspec:
+    description: Run Rails unit tests
+    service: rails
+    environment:
+      RAILS_ENV: test
+    command: bundle exec rspec --exclude-pattern spec/system/**/*_spec.rb
+    subcommands:
+      system:
+        description: Run Rails system tests
+        service: rspec_system
+        command: bundle exec rspec --pattern spec/system/**/*_spec.rb
+        compose:
+          run_options: [service-ports, use-aliases]
+
+  standard:
+    description: Run StandardRb commands
+    service: rails
+    command: bundle exec standardrb
+
+  psql:
+    description: Run the psql CLI on the dev database
+    service: postgres
+    command: psql -h postgres -U postgres -d app_development
+
+  'redis-cli':
+    descriptions: Run the Redis CLI
+    service: redis
+    command: redis-cli -h redis
+
+provision:
+  - dip compose down --volumes
+  - dip compose up -d postgres redis
+  - dip bundle install
+  - dip rails db:create
+  - dip rails db:environment:set RAILS_ENV=development
+  - dip rails db:setup SAFETY_ASSURED=1
+  - dip yarn install
+  - dip rails db:test:prepare RAILS_ENV=test
+  - dip compose up -d sidekiq

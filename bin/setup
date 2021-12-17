@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+# path to your application root.
+APP_ROOT = File.expand_path("..", __dir__)
+
+def system!(*args)
+  system(*args) || abort("\n== Command #{args} failed ==")
+end
+
+def continue
+  puts "Press Enter to continue\r"
+  gets
+end
+
+FileUtils.chdir APP_ROOT do
+  # This script is a way to update your development environment automatically.
+  # This script is idempotent, so that you can run it at any time and get an expectable outcome.
+  # Add necessary setup steps to this file.
+  puts "== Starting clean application setup =="
+  puts "Warning! Be sure to stop all Procfile managed processes"
+  continue
+
+  puts "== Installing dependencies =="
+  system! "gem install bundler -v \"$(grep -A 1 \"BUNDLED WITH\" Gemfile.lock | tail -n 1)\""
+  system! "gem install bundler --conservative"
+  system("bundle check") || system!("bundle install")
+
+  # Install JavaScript dependencies
+  system! "yarn --check"
+
+  puts "\n== Clear Redis queues =="
+  system! "redis-cli flushall"
+
+  puts "\n== Preparing & seeding database =="
+  # db:setup rebuilds the database structure for both test and development
+  # and then runs db:seed
+  # db:reset command will drop the database and set it up again.
+  # This is functionally equivalent to db:drop db:setup.
+  system! "bin/rails db:reset"
+
+  puts "\n== Completed! =="
+  puts "You may start your Procfile managed processes now."
+end
