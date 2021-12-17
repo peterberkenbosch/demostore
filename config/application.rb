@@ -21,6 +21,14 @@ Bundler.require(*Rails.groups)
 
 module App
   class Application < Rails::Application
+    # Load application's model / class decorators
+    initializer "spree.decorators" do |app|
+      config.to_prepare do
+        Dir.glob(Rails.root.join("app/**/*_decorator*.rb")) do |path|
+          require_dependency(path)
+        end
+      end
+    end
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
@@ -34,5 +42,9 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Solidus active_storage_adapter variants are using a imagemagick resize format.
+    # this is not compatible with the default :vips
+    config.active_storage.variant_processor = :mini_magick
   end
 end
