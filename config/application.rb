@@ -42,5 +42,9 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # Solidus active_storage_adapter variants are using a imagemagick resize format.
+    # this is not compatible with the default :vips
+    config.active_storage.variant_processor = :mini_magick
   end
 end
