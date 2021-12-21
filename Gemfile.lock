@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: https://github.com/peterberkenbosch/awesome_nested_set.git
-  revision: 0e1fc69afc75756e6d38408633ca23504a81e5b5
+  revision: d9ff3fbc683e36be0172f918b7274547d72a6ab7
   branch: rails-7-support
   specs:
     awesome_nested_set (3.4.0)
