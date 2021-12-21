@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/peterberkenbosch/solidus.git
-  revision: d28868ab4f2dd021e86872fd243ea4961be4a780
+  revision: 3ecea7d0e6d4dc6d87b20e5a874048aa5bb746f1
   branch: rails7
   specs:
     solidus (3.2.0.alpha)
