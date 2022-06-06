@@ -107,6 +107,11 @@
     "@babel/helper-validator-identifier" "^7.15.7"
     to-fast-properties "^2.0.0"
 
+"@csstools/selector-specificity@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@csstools/selector-specificity/-/selector-specificity-2.0.0.tgz#65b12f12db55188422070e34687bf3af09870922"
+  integrity sha512-rZ6vufeY/UjAgtyiJ4WvfF6XP6HizIyOfbZOg0RnecIwjrvH8Am3nN1BpKnnPZunYAkUcPPXDhwbxOtGop8cfQ==
+
 "@eslint/eslintrc@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.3.0.tgz#d736d6963d7003b6514e6324bec9c602ac340318"
@@ -1979,12 +1984,13 @@ postcss-nested@5.0.6:
   dependencies:
     postcss-selector-parser "^6.0.6"
 
-postcss-nesting@^10.1.0:
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-10.1.0.tgz#4e3deab5b18cd443495cf6be818ab758a9c3d71d"
-  integrity sha512-HQ8kc/kLid2YjTOjlUC2Lk9JCGTJ/WDqRtEbJWWTQNs0KObgp3a1DFQhS19toVK8d/2q2YmVasjdQaWqZhotPg==
+postcss-nesting@^10.1.8:
+  version "10.1.8"
+  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-10.1.8.tgz#1675542cfedc3dc9621993f3abfdafa260c3a460"
+  integrity sha512-txdb3/idHYsBbNDFo1PFY0ExCgH5nfWi8G5lO49e6iuU42TydbODTzJgF5UuL5bhgeSlnAtDgfFTDG0Cl1zaSQ==
   dependencies:
-    postcss-selector-parser "^6.0.7"
+    "@csstools/selector-specificity" "^2.0.0"
+    postcss-selector-parser "^6.0.10"
 
 postcss-reporter@^7.0.0:
   version "7.0.3"
@@ -1998,10 +2004,10 @@ postcss-reporter@^7.0.0:
     lodash.sortby "^4.7.0"
     nanocolors "^0.2.6"
 
-postcss-selector-parser@^6.0.6, postcss-selector-parser@^6.0.7:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.7.tgz#48404830a635113a71fd79397de8209ed05a66fc"
-  integrity sha512-U+b/Deoi4I/UmE6KOVPpnhS7I7AYdKbhGcat+qTQ27gycvaACvNEw11ba6RrkwVmDVRW7sigWgLj4/KbbJjeDA==
+postcss-selector-parser@^6.0.10, postcss-selector-parser@^6.0.6, postcss-selector-parser@^6.0.7:
+  version "6.0.10"
+  resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz#79b61e2c0d1bfc2602d549e11d0876256f8df88d"
+  integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
   dependencies:
     cssesc "^3.0.0"
     util-deprecate "^1.0.2"
